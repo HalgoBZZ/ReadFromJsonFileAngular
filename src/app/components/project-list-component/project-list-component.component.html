@@ -1,0 +1,38 @@
+<div class="container1">
+  <div class="form-group">
+    <input class="form-control" type="text" name="search" placeholder="Search..." [(ngModel)]="searchString" [value]="searchString">
+  </div>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Tel</th>
+      <th scope="col">Place</th>
+      <th scope="col">Type</th>
+      <th scope="col">Usage</th>
+      <th scope="col">Year</th>
+      <th scope="col">Main</th>
+      <th scope="col">Text</th>
+      <th scope="col">Picture</th>
+      <th scope="col">Url</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let project of projects | projectFilter : searchString; let i = index">
+      <td>{{project.project_name}}</td>
+      <td>{{project.project_email}}</td>
+      <td>{{project.project_tel}}</td>
+      <td>{{project.project_place}}</td>
+      <td>{{project.project_typ}}</td>
+      <td>{{project.project_usage}}</td>
+      <td>{{project.project_year}}</td>
+      <td>{{project.project_main}}</td>
+      <td>{{project.project_text}}</td>
+      <td><img class="picture_disp" src="{{project.project_picture}}"></td>
+      <td>{{project.project_url}}</td>
+      <td><button class="btn btn-info" (click)="getDetails(project)">Details</button></td>
+    </tr>
+    </tbody></table>
+</div>

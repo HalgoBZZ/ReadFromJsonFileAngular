@@ -1,0 +1,110 @@
+<div class="container1">
+<form [formGroup]="projForm" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="name" id="name" placeholder="Project name" required>
+  </div>
+  <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+    <div *ngIf="name.errors.required">
+    Name is required.
+    </div>
+  </div>
+  <div class="form-group">
+      <input type="text" class="form-control" formControlName="description" id="description" placeholder="Project description" required>
+    </div>
+    <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert alert-danger">
+        <div *ngIf="description.errors.required">
+        Description is required.
+        </div>
+      </div>
+    <div class="form-group">
+        <input type="email" class="form-control" formControlName="email" id="email" placeholder="Project email" required>
+      </div>
+      <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+          <div *ngIf="email.errors.required">
+          Email is required.
+          </div>
+          <div *ngIf="email.errors.email">
+            Invalid email.
+            </div>
+        </div>
+    <div class="form-group">
+      <input type="tel" class="form-control" formControlName="tel" id="tel" placeholder="Phone number"  required>
+    </div>
+    <div *ngIf="tel.invalid && (tel.dirty || tel.touched)" class="alert alert-danger">
+        <div *ngIf="tel.errors.required">
+        Telephone number is required.
+        </div>
+        <div *ngIf="tel.errors.maxlength || tel.errors.minlength">
+            Telephone number must be at least 8 digit long.
+        </div>
+      </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="place" id="place" placeholder="Project place" required>
+    </div>
+    <div *ngIf="place.invalid && (place.dirty || place.touched)" class="alert alert-danger">
+        <div *ngIf="place.errors.required">
+        Place is required.
+        </div>
+      </div>
+    <div class="form-group">
+      <select class="form-control" formControlName="type" id="type" placeholder="Project type"  required>
+        <option value="Wohnung">Wohnung</option>
+        <option value="Villa">Villa</option>
+        <option value="Haus">Haus</option>
+      </select>
+      <!--<input type="radio" formControlName="type" id="type" placeholder="Project type" value="Villa" required><span>Villa</span>
+      <input type="radio" formControlName="type" id="type" placeholder="Project type" value="Haus" required><span>Haus</span>-->
+    </div>
+    <div *ngIf="type.invalid && (type.dirty || type.touched)" class="alert alert-danger">
+        <div *ngIf="type.errors.required">
+        Type is required.
+        </div>
+      </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="usage" id="usage" placeholder="Project usage" required>
+    </div>
+    <div *ngIf="usage.invalid && (usage.dirty || usage.touched)" class="alert alert-danger">
+        <div *ngIf="usage.errors.required">
+        Usage is required.
+        </div>
+      </div>
+    <div class="form-group">
+      <input type="number" class="form-control" formControlName="year" id="year" placeholder="Project year"required>
+    </div>
+    <div *ngIf="year.invalid && (year.dirty || year.touched)" class="alert alert-danger">
+        <div *ngIf="year.errors.required">
+        Year is required.
+        </div>
+        <div *ngIf="year.errors.min">
+          Invalid year.
+          </div>
+      </div>
+    <div class="form-group">
+      <input type="text" class="form-control" formControlName="main" id="main" placeholder="Project main" required>
+    </div>
+    <div *ngIf="main.invalid && (main.dirty || main.touched)" class="alert alert-danger">
+        <div *ngIf="main.errors.required">
+        Main is required.
+        </div>
+    </div>
+  <div class="form-group">
+    <input type="url" class="form-control"formControlName="picture" id="picture" placeholder="Project picture">
+  </div>
+  <div *ngIf="picture.invalid && (picture.dirty || picture.touched)" class="alert alert-danger">
+      <div *ngIf="url.errors.required">
+      picture is required.
+      </div>
+    </div>
+    <div class="form-group">
+      <input type="url" class="form-control" formControlName="url" id="url" placeholder="Project url" required>
+    </div>
+    <div *ngIf="url.invalid && (url.dirty || url.touched)" class="alert alert-danger">
+        <div *ngIf="url.errors.required">
+        Url is required.
+        </div>
+      </div>
+    <div class="form-group">
+      <input type="submit" [disabled]="name.errors||description.errors||email.errors||tel.errors||place.errors||type.errors||usage.errors||year.errors||main.errors||picture.errors||url.errors" class="btn btn-success">
+    </div>
+</form>
+</div>
